@@ -1,5 +1,6 @@
 import { FaStar, FaRegStar, FaEye } from "react-icons/fa";
 import { FiBookmark, FiShare2 } from "react-icons/fi";
+import { Link } from "react-router";
 
 const StarRating = ({ count, max = 5 }) => (
   <div className="flex items-center gap-1">
@@ -18,6 +19,7 @@ const StarRating = ({ count, max = 5 }) => (
 
 const NewsCard = ({ news }) => {
   const {
+    id,
     title,
     details,
     rating,
@@ -91,9 +93,9 @@ const NewsCard = ({ news }) => {
       </div>
 
       {/* Read More */}
-      <a href="#" className="text-error font-semibold text-sm -mt-2">
+      <Link to={`/news-details/${id}`}  href="#" className="text-error font-semibold text-sm -mt-2">
         Read More
-      </a>
+      </Link>
 
       {/* Divider */}
       <div className="divider my-0" />

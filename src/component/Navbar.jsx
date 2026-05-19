@@ -9,6 +9,8 @@ const Navbar = () => {
     const handleLogOut = () => {
 
         logOut()
+
+        logOut()
             .then(() => {
                 alert("You Logged out Successfully")
             })
@@ -28,7 +30,7 @@ const Navbar = () => {
             <div className="login_btn flex gap-3">
                 <img src={userIcon} alt="" />
                 {
-                    user ? <Link onSubmit={handleLogOut} to='/auth/login' className="btn btn-outline btn-primary px-10">LogOut</Link > :
+                    user ? <Link onClick={handleLogOut} to='/auth/login' className="btn btn-outline btn-primary px-10">LogOut</Link > :
                         <Link to='/auth/login' className="btn btn-outline btn-primary px-10">Login</Link >
 
                 }
