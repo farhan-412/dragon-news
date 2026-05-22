@@ -1,10 +1,14 @@
 import { use } from "react";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const Login = () => {
 
     const{signInUser} = use(AuthContext)
+
+    const location= useLocation();
+    // console.log(location)
+    const navigate = useNavigate()
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -15,12 +19,13 @@ const Login = () => {
         signInUser(email, password)
         .then(result=>{
             console.log(result.user)
+            navigate(`${location.state ? location.state : "/"}`)
+
         })
         .catch((error)=>{
             alert(error)
         })
 
-        console.log({email, password})
     }
     return (
         <div className="flex justify-center items-center min-h-screen ">
